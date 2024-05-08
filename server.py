@@ -10,7 +10,6 @@ from llama_index.core.query_engine import NLSQLTableQueryEngine
 from llama_index.core import SQLDatabase
 from llama_index.llms.azure_openai import AzureOpenAI
 
-load_dotenv()  # load env vars from .env file
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
 OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION")
@@ -31,9 +30,9 @@ query_suffix = "return only and just the query, dont explain, dont tell me nothi
 llm = AzureOpenAI(
     engine="gpt-4", model="gpt-4", temperature=0.0
 )
-sql_database = SQLDatabase(engine, include_tables=["pnad"])
+sql_database = SQLDatabase(engine, include_tables=["PNAD_TRIMESTRAL"])
 query_engine = NLSQLTableQueryEngine(
-        sql_database=sql_database, tables=["pnad"], llm=llm
+        sql_database=sql_database, tables=["PNAD_TRIMESTRAL"], llm=llm
     )
 
 app = Flask(__name__)

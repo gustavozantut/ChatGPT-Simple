@@ -136,5 +136,12 @@ COPY . .
 # COPY . .
 
 # ENV PATH=/root/.local/bin:$PATH
-
+ENV OPENAI_API_KEY=$OPENAI_API_KEY
+ENV AZURE_OPENAI_ENDPOINT=$AZURE_OPENAI_ENDPOINT
+ENV OPENAI_API_VERSION=$OPENAI_API_VERSION
+ENV driver=$driver
+ENV server=$server
+ENV database=$database
+ENV username=$username
+ENV password=$password
 CMD ["python3", "./server.py"] 
