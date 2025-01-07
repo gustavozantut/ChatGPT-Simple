@@ -82,7 +82,6 @@ RUN pip install \
     pyodbc \
     pytest-dotenv==0.5.2 \
     python-dotenv==1.0.0 \
-    #python==3.11.0 \
     pyyaml==6.0 \
     rake_nltk==1.0.6 \
     requests==2.28.2 \
@@ -136,10 +135,9 @@ COPY . .
 # COPY . .
 
 # ENV PATH=/root/.local/bin:$PATH
-ENV OPENAI_API_KEY=$OPENAI_API_KEY
-ENV AZURE_OPENAI_ENDPOINT=$AZURE_OPENAI_ENDPOINT
-ENV OPENAI_API_VERSION=$OPENAI_API_VERSION
-ENV driver=$driver
+#ENV OPENAI_API_KEY=$OPENAI_API_KEY
+#ENV AZURE_OPENAI_ENDPOINT=$AZURE_OPENAI_ENDPOINT
+#ENV OPENAI_API_VERSION=$OPENAI_API_VERSION
 ENV server=$server
 ENV database=$database
 ENV username=$username

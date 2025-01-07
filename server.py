@@ -10,9 +10,9 @@ from llama_index.core.query_engine import NLSQLTableQueryEngine
 from llama_index.core import SQLDatabase
 from llama_index.llms.azure_openai import AzureOpenAI
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
-OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION")
+#OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+#AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+#OPENAI_API_VERSION = os.getenv("OPENAI_API_VERSION")
 server = os.getenv("server")
 database = os.getenv("database")
 username = os.getenv("username")
