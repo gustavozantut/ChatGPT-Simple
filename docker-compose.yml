@@ -1,0 +1,9 @@
+services:
+  chatgpt-clone:
+    image: guhzantut/chat-llamaidx:latest
+    container_name: chat-llamaidx
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "1338:1338"

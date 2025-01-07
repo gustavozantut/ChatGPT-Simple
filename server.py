@@ -26,7 +26,8 @@ connection_url = URL.create(
 )
 engine = create_engine(connection_url)
 metadata_obj = MetaData()
-query_suffix = "return only and just the query, dont explain, dont tell me nothing except the query"
+query_suffix_1 = " return only and just the query, dont explain, dont tell me nothing except the query, avoid division by zero, return only and just the query, dont explain, dont tell me nothing except the query."
+query_suffix_2=" include the query in a select with limit 25 order by value desc."
 llm = AzureOpenAI(
     engine="gpt-4", model="gpt-4", temperature=0.0
 )
@@ -47,7 +48,16 @@ def index():
 def get_response():
     
     message = request.args.get("message")
-    response = str(query_engine.query(f'Dada a pergunta "{message}" e com a resposta de valor "{query_engine.query(message+query_suffix)}" forneca um texto de resposta, sem nenhuma observação adicional.'))
+    
+    if ('estado' in str.lower(message)) and ('grau' in str.lower(message)):
+        
+        response = query_engine.query(message+query_suffix_1+query_suffix_2)
+        
+    else:
+        
+        response = query_engine.query(message+query_suffix_1)
+        
+    response = str(llm.complete(f'Dada a pergunta "{message}" e com a resposta de valor "{response}" forneca um texto de resposta, sem nenhuma observação adicional.'))
     return response
 
 
